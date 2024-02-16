@@ -10,7 +10,14 @@ public class barWarp : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            player.GetComponent<CharacterController>().enabled = false;
             player.transform.position = new Vector3(-30f, 27f, 100f);
+            Invoke("On", .05f);
         }
+    }
+
+    void On()
+    {
+        player.GetComponent<CharacterController>().enabled = true;
     }
 }
